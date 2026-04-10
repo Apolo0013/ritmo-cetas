@@ -1,26 +1,10 @@
 @use '../../../../styles/pallete' as plt;
+@use '../../../../styles/mixins' as *;
 
 .head-home {
-    margin-top: 16px;
-    border: 1px solid plt.$border;
+    @include Header;
     width: 100%;
-    height: 70px;
-    background: plt.$bg-surface;
     display: grid;
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 100%;
-    border-radius: 10px;
-
-    .head-logo {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        margin-left: 16px;
-
-        h1 {
-            display: flex;
-            place-items: center;
-        }
-        
-    }
 }

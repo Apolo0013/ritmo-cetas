@@ -1,19 +1,13 @@
 import './Header.scss'
 //imagens
 import ImgGitHub from '../../assets/github.svg'
-import ImgControl from '../../assets/control.svg'
+//Componentes/UI
+import HeaderLogo from '../../../../shared/UI/HeaderLogo/HeaderLogo'
 
 function Header() {
     return (
         <header className='head-home'>
-            <div className='head-logo'>
-                <img
-                    className='aspect-square h-[80%]'
-                    src={ImgControl}
-                    alt="Imagem de um controle"
-                />
-                <h1>Cetas Ritmo</h1>
-            </div>
+            <HeaderLogo />
             <div className='w-full h-full flex-center'>
                 <img
                     className='aspect-square h-[80%]'

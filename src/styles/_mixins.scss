@@ -1,5 +1,17 @@
+@use './pallete' as plt;
+
 @mixin flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+//Header default
+@mixin Header {
+    margin-top: 16px;
+    border: 1px solid plt.$border;
+    height: 70px;
+    background: plt.$bg-surface;
+    border-radius: 10px;
+    overflow: hidden;
 }

@@ -1,0 +1,11 @@
+.head-logo {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: 16px;
+
+    h1 {
+        display: flex;
+        place-items: center;
+    }
+}
