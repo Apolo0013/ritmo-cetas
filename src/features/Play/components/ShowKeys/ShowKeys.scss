@@ -1,0 +1,53 @@
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/pallete' as plt;
+
+.play-showkeys {
+    $border-px: 1px;
+
+    width: 100%;
+    height: 138px;
+    background: plt.$bg-surface;
+    border-top: $border-px solid plt.$border;
+    border-bottom: $border-px solid plt.$border;
+    padding: 8px;
+    @include flex-center;
+    gap: 16px;
+
+    .key-show {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 5px;
+        border: $border-px solid plt.$border;
+        background: darken(plt.$bg-surface, 1%);
+        @include flex-center;
+        
+        img {
+            height: 100%;
+            aspect-ratio: 1 / 1;
+        }
+    }
+}
+
+.click-key-anime {
+    $color-shadow: rgba(255, 255, 255, 0.255);
+
+    animation: fds 0.2s linear 1 forwards;
+    box-shadow: 0 0 0 0 $color-shadow;  
+
+
+    @keyframes fds {
+        30% {
+            transform: scale(0.95);
+        }
+        50% {
+            box-shadow: 0 0 0 5px $color-shadow;
+        }
+        80% {
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.0);
+        }
+        100% {
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.0);
+            transform: scale(1);
+        }
+    }
+}

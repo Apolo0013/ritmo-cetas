@@ -1,7 +1,7 @@
 import './Content.scss'
 //imagem
 import ImgPlay from '../../assets/play.svg'
-import ImgArrow from '../../assets/arrow.svg'
+import ImgArrow from '../../../../shared/assets/arrow.svg'
 //Funcao utils
 import { useEffect, useRef } from 'react'
 import useContent from '../../hook/useContent'
