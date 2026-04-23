@@ -1,7 +1,7 @@
 import './Content.scss'
 //imagem
 import ImgPlay from '../../assets/play.svg'
-import ImgArrow from '../../../../shared/assets/arrow.svg'
+import {imagens} from '../../../../shared/assets/index'
 //Funcao utils
 import { useEffect, useRef } from 'react'
 import useContent from '../../hook/useContent'
@@ -38,7 +38,7 @@ function Content() {
                         <img
                             key={k}
                             className='h-full aspect-square transition duration-500'
-                            src={ImgArrow}
+                            src={imagens.arrow}
                             alt="Imagem de um ceta"
                         />
                     ))

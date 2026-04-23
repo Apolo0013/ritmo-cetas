@@ -1,5 +1,5 @@
 //react
-import { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 //css
 import './ShowKeys.scss'
 //imagem
@@ -7,37 +7,30 @@ import ImgArrow from '../../../../shared/assets/arrow.svg'
 import useShowKeys from '../../hook/useShowKeys'
 //service
 import {addCallBackKeyDown} from '../../../../shared/services/keydownManager'
-import type { ClassAnimeNames, StateClassesChildren } from '../..//hook/type'
 
 function ShowKeys() {
     //hook
     const {
         HandlerKeyDown,
-        RemoveClass
+        RemoveClass,
+        classBottom,
+        classLeft,
+        classRight,
+        classTop,
+        setclassBottom,
+        setclassLeft,
+        setclassRight,
+        setclassTop,
+        refConteiner,
     } = useShowKeys()
-    //referencia ao pai
-    const refConteiner = useRef<HTMLDivElement | null>(null)
-    //classs do filho
-    const [classLeft, setclassLeft] = useState<ClassAnimeNames>('')
-    const [classRight, setclassRight] = useState<ClassAnimeNames>('')
-    const [classTop, setclassTop] = useState<ClassAnimeNames>('')
-    const [classBottom, setclassBottom] = useState<ClassAnimeNames>('')
-
-    const [classChildren]= useState<StateClassesChildren>({
-        ArrowDown: setclassBottom,
-        ArrowLeft: setclassLeft,
-        ArrowRight: setclassRight,
-        ArrowUp: setclassTop
-    })
+    
 
     //registar o callback
     useEffect(() => {
         if (!refConteiner.current) return
         addCallBackKeyDown(
             (e) => HandlerKeyDown({
-                e: e,
-                parent: refConteiner.current!,
-                setClasses: classChildren
+                e: e
             })
         )
     }, [])
