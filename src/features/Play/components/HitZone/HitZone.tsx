@@ -51,11 +51,14 @@ function HitZone() {
                 ref={refParent}
             >
                 {
-                    keyList.map(({direction, key}, k) => (
+                    keyList.map(({ direction, key }, k) => (
                         <div
                             className='key-move'
                             key={k}
+                            //data
                             data-direction={key}
+                            //id dele
+                            data-id={`${k} - ${key} - ${direction}`}
                             //direcao
                             style={{transform: `rotate(${direction})`}}
                         >
