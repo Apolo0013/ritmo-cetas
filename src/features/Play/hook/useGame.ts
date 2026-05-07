@@ -41,6 +41,29 @@ function useGame({
         return spawnX + progress * distance.current
     }
 
+    function render() {
+        if (!refAudio.current) return
+        const currentTime: number = refAudio.current.currentTime * 1000
+        refNotesEl.current.forEach(({ el, time, angle}) => {
+            const X: number = getX({ // calculo o eixo X dele
+                currentTime,
+                noteTime: time
+            })
+            el.style.transform = ` 
+                translateX(${X}px)
+                rotate(${angle})
+            ` // colocando as posicao
+            // - posicao X
+            // - ir manter o angulo/angle
+        })
+    }
+
+    function update() {
+        console.log('comecou')
+        render()
+        requestAnimationFrame(update)
+    }
+
     function GenerateNotes(): GradeInformation[]  | null{
         if (!refAudio.current) return null
         let order: number = 0 // indice da order
@@ -65,6 +88,13 @@ function useGame({
         }
     }
 
+    function Main(audio: HTMLAudioElement) {
+        console.log(!notes || refNotesEl.current.length == 0)
+        if (!notes || refNotesEl.current.length == 0) return
+        update()
+        return () => audio.removeEventListener('loadedmetadata', GenerateNotes)
+    }
+
     const travelTime: number = 2000
     const spawnX: number = -100
     const distance = useRef<number>(0)
@@ -73,19 +103,20 @@ function useGame({
     const refNotesEl = useRef<GradeInformationEl[]>([])
     
     useEffect(() => {
-        if (!refParent.current || !refDetector.current || !refAudio.current) return
-        const audio: HTMLAudioElement = refAudio.current
+        if (!refParent.current || !refDetector.current) return
         //informacao
         const detectorX: number = refDetector.current.getBoundingClientRect().x
         distance.current = detectorX - spawnX
-        //
-        audio.addEventListener('loadedmetadata', () => setnotes(GenerateNotes()))
-        return () => audio.removeEventListener('loadedmetadata', GenerateNotes)
     }, [refAudio, refDetector, refParent])
 
     useEffect(() => {
-        console.log(refNotesEl.current)
-    }, [refNotesEl])
+        if (!refAudio.current) return
+        const audio: HTMLAudioElement = refAudio.current
+        audio.addEventListener('loadedmetadata', () => {
+            setnotes(GenerateNotes())
+        })
+        Main(audio) 
+    }, [refNotesEl, notes])
 
     return {
         notes,

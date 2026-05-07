@@ -13,8 +13,8 @@
     
     .audio-game {
         position: absolute;
-        left: 70%;
-        top: 50%;
+        left: 60%;
+        top: 80%;
     }
 
     .wraper-keys-move {
@@ -24,7 +24,7 @@
         align-items: center;
         gap: 68px;
 
-        animation:f 20s linear infinite forwards;
+        //animation:f 20s linear infinite forwards;
 
         @keyframes f {
             from {

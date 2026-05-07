@@ -72,7 +72,6 @@ function HitZone() {
                                         order: order,
                                         time: time
                                     })
-                                    console.log(refNotesEl.current.map(x => x.el.dataset.direction))
                                 }}
                                 
                                 //
