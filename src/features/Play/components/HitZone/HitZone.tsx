@@ -7,12 +7,9 @@ import useHitZone from '../../hook/useHitZone'
 import { useEffect, useRef } from 'react'
 //services
 import { addCallBackKeyDown } from '../../../../shared/services/keydownManager'
-import type { keyInfo } from '../../hook/type'
 import useGame from '../../hook/useGame'
 
 function HitZone() {
-
-    //const keyList = [{ 'key': 'ArrowDown', 'direction': '180deg' }, { 'key': 'ArrowRight', 'direction': '90deg' }, { 'key': 'ArrowLeft', 'direction': '270deg' }, { 'key': 'ArrowUp', 'direction': '0deg' }, { 'key': 'ArrowLeft', 'direction': '270deg' }, { 'key': 'ArrowDown', 'direction': '180deg' }, { 'key': 'ArrowRight', 'direction': '90deg' }, { 'key': 'ArrowLeft', 'direction': '270deg' }, { 'key': 'ArrowRight', 'direction': '90deg' }, { 'key': 'ArrowRight', 'direction': '90deg' }] satisfies keyInfo[]
     //ref
     const refDetector = useRef<HTMLDivElement | null>(null)
     const refParent = useRef<HTMLDivElement | null>(null)
@@ -47,6 +44,8 @@ function HitZone() {
                 ref={refAudio}
                 src={AudioTeste}
                 controls
+                muted
+                autoPlay
             ></audio>
 
             <div

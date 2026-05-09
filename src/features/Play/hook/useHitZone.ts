@@ -1,6 +1,6 @@
-import { useState, type RefObject } from 'react'
+import { useEffect, useState, type RefObject } from 'react'
 //Type
-import {type ParamHandlerKeyDown, validKey } from './type'
+import {type ParamHandlerKeyDown, validKey, type Validkeys } from './type'
 //Store
 import { gameState } from '../store/game.store'
 
@@ -76,12 +76,16 @@ function useHitZone({
         else elTarget.classList.add('key-move-wrong')
         console.log(keyCode == keyData ? 'Acertou' : 'errou')
     }
+    
     //state
     //state que irar guardar
     const [_, setlistOfKeysClicked] = useState<string[]>([])
     //Store.
     //Pegar o "alterado" de score
     const setScore = gameState(state => state.increaseScore)
+    useEffect(() => {
+        //setInterval(() => setScore(), 5000)
+    }, [])
     return {
         HandlerKeyDown
     }

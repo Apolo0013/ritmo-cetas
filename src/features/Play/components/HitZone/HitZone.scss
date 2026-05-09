@@ -24,23 +24,16 @@
         align-items: center;
         gap: 68px;
 
-        //animation:f 20s linear infinite forwards;
-
-        @keyframes f {
-            from {
-                transform: translateX(-100%);
-            }
-            to {
-                transform: translateX(100%);
-            }
-        }
-
         .key-move {
+            transition: 0.3s ease-in-out;
             border: $width-border solid $color-border;
             box-shadow: 0 0 0 0px black;
             height: 110px;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
+            //na hora de renderiza ele nao pisca no UI
+            position: absolute;
+            left: -100%;
 
             img {
                 width: 100%;
@@ -59,7 +52,6 @@
         }
 
         @mixin animation-waning-key($color) {
-            transition: 0.3s;
             color: rgba($color, 0.5);
             border-color: $color;
             filter: grayscale(60%);

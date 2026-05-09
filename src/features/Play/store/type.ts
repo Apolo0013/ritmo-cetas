@@ -7,11 +7,6 @@ export type GameState = {
     scoreView: number // score apenas para exbicao
 }
 
-export type ParamTotalIncrease = {
-    targetValue: number,
-    increase: number,
-}
-
 export type ParamAnimationCounter = {
     set: Parameters<StateCreator<GameState>>[0],
     get: () => GameState

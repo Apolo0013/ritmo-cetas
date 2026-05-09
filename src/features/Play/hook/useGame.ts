@@ -59,7 +59,6 @@ function useGame({
     }
 
     function update() {
-        console.log('comecou')
         render()
         requestAnimationFrame(update)
     }
