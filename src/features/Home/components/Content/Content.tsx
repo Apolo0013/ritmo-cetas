@@ -4,11 +4,15 @@ import ImgPlay from '../../../../shared/assets/play.svg'
 import {imagens} from '../../../../shared/assets/index'
 //Funcao utils
 import { useEffect, useRef } from 'react'
+//hook
 import useContent from '../../hook/useContent'
+import { useNavigate } from 'react-router-dom'
 
 function Content() {
     //referencia
     const refKeys = useRef<HTMLDivElement | null>(null)
+    //navigate
+    const nv = useNavigate()
     //hook
     const {TradeRotate} = useContent()
     useEffect(() => {
@@ -21,7 +25,10 @@ function Content() {
                 <h1 className='title-main'>Cetas Ritmo</h1>
                 <p className='title-seg'>Jogue de ritmo com teclado</p>
             </div>
-            <button className='button-play'>
+            <button
+                className='button-play'
+                onClick={() => nv('/play')}
+            >
                 <img
                     className='aspect-square h-[32px]'
                     src={ImgPlay}

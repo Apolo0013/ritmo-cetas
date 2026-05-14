@@ -4,13 +4,21 @@ import MenuPlay from '../components/MenuPlay/index'
 import ShowKeys from '../components/ShowKeys/ShowKeys'
 //contexto
 import AudioProvider from '../store/audioContext/audio.Provider'
+//store
+import { menuPlayState } from '../store/menuPlay.store'
+//
 import './Play.scss'
 
 function Play() {
+    const isShow: boolean = menuPlayState(state => state.isShow)
     return (
         <main className='play'>
             <AudioProvider>
-                <MenuPlay />
+                { 
+                    isShow
+                        ? <MenuPlay />
+                        : null
+                }
                 <Header />
                 <ShowKeys />
                 <HitZone />

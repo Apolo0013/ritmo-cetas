@@ -3,8 +3,14 @@ import './MenuPlay.scss'
 import ImgPause from '../../assets/pause.svg'
 import ImgPlay from '../../../../shared/assets/play.svg'
 import ImgHome from '../../assets/home.svg'
+///store e context
+import { menuPlayState } from '../../store/menuPlay.store'
+import { useNavigate } from 'react-router-dom'
+
 
 function MenuStop() {
+    const setIsShow = menuPlayState(state => state.setIsShow)
+    const nv = useNavigate()
     return (
         <div className="menu-stop">
             <div className="imagem-stop">
@@ -16,14 +22,24 @@ function MenuStop() {
             <h1 className='titulo-game'>Jogo Pausado</h1>
             <p>A música foi pausada. Você pode continuar ou voltar ao menu.</p>
             <div className="conteiner-botoes-stop">
-                <button className='menu-play-btn menu-play-btn-primary'>
+                <button
+                    className='menu-play-btn menu-play-btn-primary'
+                    onClick={() => {
+                        setIsShow(false)
+                    }}
+                >
                     <img
                         src={ImgPlay}
                         alt="Imagem de play"
                     />
                     <p>Continuar</p>
                 </button>
-                <button className='menu-play-btn menu-play-btn-secondary'>
+                <button
+                    className='menu-play-btn menu-play-btn-secondary'
+                    onClick={() => {
+                        nv('/home')
+                    }}
+                >
                     <img
                         src={ImgHome}
                         alt="Imagem de uma casa"
