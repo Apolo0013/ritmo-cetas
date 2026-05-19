@@ -1,0 +1,57 @@
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/pallete' as plt;
+
+.count-down {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+    @include flex-center;
+
+    .conteiner-count {
+        overflow: hidden;
+        border: 5px solid plt.$accent;
+        box-shadow: 0 0 20px 20px rgba(plt.$accent, 0.2);
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.2);
+        aspect-ratio: 1 / 1;
+        width: 250px;
+        height: 250px;
+        @include flex-center;
+        position: relative;
+
+        .wraper-count {
+            line-height: 1;
+            position: absolute;
+            top: -267px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: auto;
+            animation: f 5s steps(3) 1 forwards;
+
+            @keyframes f {
+                from {
+                    top: 0px;
+                }
+                to {
+                    top: -750px;
+                }
+            }
+
+            p { 
+                @include flex-center;
+                display: inline;
+                color: plt.$accent;
+                font-size: 250px;
+                font-weight: bolder;
+            } 
+        }
+        
+    }
+}

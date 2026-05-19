@@ -1,7 +1,6 @@
 import './HitZone.scss'
 //imagens
 import { imagens } from '../../../../shared/assets/index'
-import AudioTeste from './Slipknot - The Blister Exists (Audio) - Slipknot (youtube).mp3'
 //Hook
 import useHitZone from '../../hook/useHitZone'
 import { useEffect, useRef } from 'react'
@@ -14,9 +13,6 @@ function HitZone() {
     //ref
     const refDetector = useRef<HTMLDivElement | null>(null)
     const refParent = useRef<HTMLDivElement | null>(null)
-    //const refAudio = useRef<HTMLAudioElement | null>(null)
-    //context
-    const { refAudio } = useAudio()!
     //hook
     const {
         HandlerKeyDown
@@ -30,8 +26,7 @@ function HitZone() {
         refNotesEl
     } = useGame({
         refDetector,
-        refParent,
-        refAudio
+        refParent
     })
     //faca que o menuplay tenha o poder de play/pause e teste o contexto
     //use Effect
@@ -42,15 +37,6 @@ function HitZone() {
     }, [])
     return (
         <div className='play-hitzone'>
-            <audio
-                className='audio-game'
-                ref={refAudio}
-                src={AudioTeste}
-                controls
-                muted
-                autoPlay
-            ></audio>
-
             <div
                 className="detector"
                 ref={refDetector}

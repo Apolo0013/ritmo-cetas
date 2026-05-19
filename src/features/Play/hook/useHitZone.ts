@@ -32,7 +32,6 @@ function useHitZone({
         })
         return resultAddId
     }
-
     function HandlerKeyDown({ e }: ParamHandlerKeyDown) {
         //se ele for false nao passa
         if (!refDetector.current || !refParent.current) return

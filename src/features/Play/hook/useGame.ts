@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, type RefObject } from "react"
 import { directions, validKey, type Direction, type Validkeys } from "./type"
+import { useAudio } from "../store/audioContext/useAudio"
 
 type ParamuseGame = {
     refDetector: RefObject<HTMLDivElement | null>,
-    refParent: RefObject<HTMLDivElement | null>,
-    refAudio: RefObject<HTMLAudioElement | null> | null
+    refParent: RefObject<HTMLDivElement | null>
 }
 
 type GradeInformation = {
@@ -27,7 +27,6 @@ type ParamgetX = {
 function useGame({ 
     refDetector,
     refParent,
-    refAudio
 }: ParamuseGame) {
     function randint(min: number, max: number): number {
        return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -93,6 +92,8 @@ function useGame({
         update()
         return () => audio.removeEventListener('loadedmetadata', GenerateNotes)
     }
+    //context
+    const { refAudio  } = useAudio()!
 
     const travelTime: number = 2000
     const spawnX: number = -100

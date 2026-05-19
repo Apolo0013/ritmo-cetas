@@ -29,8 +29,6 @@ export const gameState = create<GameState>((set, get) => ({
             scoreView: prev.score,
             score: prev.score + value
         }))
-        console.log(get())
         AnimationCounter({ set, get })
-        console.log(get())
     }
 }))

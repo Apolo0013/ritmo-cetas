@@ -1,5 +1,29 @@
-@use '../../../../styles/pallete' as plt;
-@use '../../../../styles/mixins' as *;
+@use "../../../../styles/pallete" as plt;
+@use "../../../../styles/mixins" as *;
+
+.wraper-play-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+
+    .btn-pause {
+        cursor: pointer;
+        margin-top: 16px;
+        height: 70%;
+        aspect-ratio: 1 / 1;
+        padding: 12px;
+        border-radius: 10px;
+        background-color: plt.$bg-surface;
+        border: 1px solid plt.$border;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
 
 .play-header {
     @include Header;
@@ -7,7 +31,7 @@
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 1fr 2fr;
-    
+
     .play-header-info {
         width: 100%;
         height: 100%;
@@ -16,5 +40,5 @@
         gap: 16px;
         align-items: center;
         justify-content: flex-end;
-    }
+  }
 }
