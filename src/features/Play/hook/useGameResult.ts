@@ -4,11 +4,12 @@ import { useAudio } from "../store/audioContext/useAudio"
 import { gameResultState } from "../store/gameResult.store"
 import { gameState } from "../store/game.store"
 import { menuPlayState } from "../store/menuPlay.store"
+import { useNavigate } from "react-router-dom"
 
 function useGameResult() {
     function fds() {
         if (!refAudio.current) return
-        //refAudio.current.currentTime = refAudio.current.duration - 5
+        refAudio.current.currentTime = refAudio.current.duration - 1    
 
     }
 
@@ -34,7 +35,7 @@ function useGameResult() {
     }
 
     function onClickGoBackHome() {
-
+        nv("/home")
     }
     //store
     const setIsShow = gameResultState(state => state.setIsShow)
@@ -46,7 +47,8 @@ function useGameResult() {
     const setIsShowMenuPlay = menuPlayState(state => state.setIsShow)
     //
     const resetKeyHitZone = gameState(state => state.resetKeyHitZone)
-    //
+    //navigate
+    const nv = useNavigate()
     
     const { setListCbEndAudio, refAudio } = useAudio()!
     useEffect(() => {

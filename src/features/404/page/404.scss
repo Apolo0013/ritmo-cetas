@@ -1,0 +1,71 @@
+@use "../../../styles/mixins" as *;
+@use '../../../styles/pallete' as plt;
+
+.wraper-page-404 {
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+
+    .page-404 {
+        @include flex-center;
+        flex-direction: column;
+        width: 40%;
+        gap: 16px;
+
+        .title-404, .sub-title-404 {
+            font-weight: bolder;
+        }
+
+        .title-404 {
+            font-size: 128px;
+            color: plt.$primary;
+            line-height: 1;
+        }
+
+        .sub-title-404 {
+            font-size: 32px;
+            color: plt.$text-main;
+        }
+
+        p {
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn-404 {
+            margin-top: 16px;
+            width: 70%;
+            height: 80px;
+            background: plt.$primary;
+            @include flex-center;
+            gap: 8px;
+            border-radius: 10px;
+            transition: background 0.3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                background: plt.$primary-hover;
+            }
+
+            p {
+                font-size: 24px;
+                color: plt.$text-main;
+                line-height: 1;
+                width: auto;
+                font-weight: bold;
+            }
+
+
+            div { // wraper da imagem
+                height: 50%;
+                aspect-ratio: 1 / 1;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

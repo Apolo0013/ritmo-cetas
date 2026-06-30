@@ -1,12 +1,10 @@
 import './GameResult.scss'
 //imagens
 import LoopImg from '../../assets/loop.svg'
-import HomeImg from '../../assets/home.svg'
+import HomeImg from '../../../../shared/assets/home.svg'
 import { gameState } from '../../store/game.store'
 import useGameResult from '../../hook/useGameResult'
 
-type PropsGameResult = {
-}
 
 function GameResult() {
     const {

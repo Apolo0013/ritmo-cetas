@@ -2,7 +2,7 @@ import './MenuPlay.scss'
 ///imagens
 import ImgPause from '../../assets/pause.svg'
 import ImgPlay from '../../../../shared/assets/play.svg'
-import ImgHome from '../../assets/home.svg'
+import ImgHome from '../../../../shared/assets/home.svg'
 ///store e context
 import { menuPlayState } from '../../store/menuPlay.store'
 import { useNavigate } from 'react-router-dom'
